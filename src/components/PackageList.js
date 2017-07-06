@@ -1,22 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {ListGroup, ListGroupItem} from 'react-bootstrap'
-import Link from 'redux-first-router-link'
 
 import PackageListItem from './PackageListItem'
 
 const Component = ({ items, actSelectPackage }) => (
-  <ListGroup>
-    {items.map(item =>
-      <Link to={{ type: 'PACKAGE', payload: {id: item.id} }}>
-        <PackageListItem
-          key={item.id}
-          {...item}
-          // onClick={() => actSelectPackage(item.id)}
-        />
-      </Link>
-    )}
-  </ListGroup>
+  <div className="container">
+    <div className="uninett-color-white uninett-padded gutter">
+      <ListGroup>
+        {items.map(item =>
+          <PackageListItem
+            key={item.id}
+            {...item}
+            onClick={() => actSelectPackage(item.id)}
+          />
+        )}
+      </ListGroup>
+    </div>
+  </div>
 )
 
 // Component.propTypes = {

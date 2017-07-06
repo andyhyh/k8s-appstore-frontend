@@ -7,13 +7,15 @@ const progress = (
 )
 
 const Component = ({ inprogress, item, actClosePackage }) => (
-  <div>
-    {inprogress ? progress : null }
-    <button onClick={actClosePackage} type="button" className="close">
-      <span aria-hidden="true">×</span>
-      <span className="sr-only">Close alert</span>
-    </button>
-    Package title is {item.title}
+  <div className="container">
+    <div className="uninett-color-white uninett-padded gutter">
+      {inprogress ? progress : null }
+      <button onClick={actClosePackage} type="button" className="close">
+        <span aria-hidden="true">×</span>
+        <span className="sr-only">Close alert</span>
+      </button>
+      Package title is {item.title}
+    </div>
   </div>
 )
 

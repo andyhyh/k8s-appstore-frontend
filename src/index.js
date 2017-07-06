@@ -9,7 +9,7 @@ import { connectRoutes } from 'redux-first-router'
 import createHistory from 'history/createBrowserHistory'
 
 import reducers from './store'
-import App from './components/App'
+import AppController from './containers/AppController'
 import DataportenAPI from './components/API'
 import { selectPackage } from './store/actions'
 
@@ -21,7 +21,8 @@ const history = createHistory()
 
 const routesMap = {
   HOME: '/',      // action <-> url path
-  PACKAGE: '/package/:id'  // :id is a dynamic segment
+  PACKAGES: '/packages',  // :id is a dynamic segment
+  PACKAGE: '/packages/:id'  // :id is a dynamic segment
 }
 
 const routerSetup = connectRoutes(history, routesMap) // yes, 3 redux aspects
@@ -56,7 +57,7 @@ api.authenticate()
 
 ReactDOM.render((
   <Provider store={store}>
-    <App />
+    <AppController />
   </Provider>
   ),
   document.getElementById('app')

@@ -37,16 +37,25 @@
 //   }
 // }
 
-export const PACKAGE_SELECT = 'PACKAGE_SELECT'
+export const PACKAGE_SELECT = 'PACKAGE'
 export function selectPackage(packageId) {
   return {
     type: PACKAGE_SELECT,
-    payload: packageId
+    payload: {
+      id: packageId
+    }
   }
 }
 export function closePackage() {
   return {
-    type: PACKAGE_SELECT,
+    type: 'HOME',
+    payload: null
+  }
+}
+
+export function listPackages() {
+  return {
+    type: 'PACKAGES',
     payload: null
   }
 }

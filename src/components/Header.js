@@ -2,6 +2,7 @@ import React from 'react'
 import {Navbar, Nav, NavItem} from 'react-bootstrap';
 
 import LoginController from '../containers/LoginController';
+import Link from 'redux-first-router-link';
 
 const stylex = {
   // "margin-top": "12px"
@@ -13,15 +14,15 @@ const Header = () => (
     <Navbar >
       <Navbar.Header style={stylex}>
         <Navbar.Brand>
-          <a href="#"><img src={uninettLogo} /></a>
+          <Link to="/"><img src={uninettLogo} /></Link>
         </Navbar.Brand>
       </Navbar.Header>
       <Nav pullRight>
         <LoginController></LoginController>
       </Nav>
       <Nav>
-        <NavItem eventKey={1} href="#">Library</NavItem>
-        <NavItem eventKey={2} href="#">My applications</NavItem>
+        <Link to="/packages"><NavItem eventKey={1} href="/packages">Library</NavItem></Link>
+        <NavItem eventKey={2} href="/applications">My applications</NavItem>
         {/*
           <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
             <MenuItem eventKey={3.1}>Action</MenuItem>
