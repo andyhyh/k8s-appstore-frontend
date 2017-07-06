@@ -15,7 +15,7 @@ const Footer = () => (
               <div className="footer-logo" >
                 <img src={uninettLogo} alt="Uninett logo" type="image/svg+xml"  style={stylex} />
               </div>
-              <div className="footer-uninett-department">UNINETT AS 2013-2014</div>
+              <div className="footer-uninett-department">UNINETT AS 2017</div>
           </div>
           <div className="clearfix"></div>
         </div>
