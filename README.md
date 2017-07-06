@@ -2,11 +2,13 @@
 
 
 ```
-npm install --save-dev webpack
-npm install --global webpack
 npm install
 npm start # Development
 ```
+
+
+
+Loading font dependencies:
 
 
 ```
@@ -39,40 +41,4 @@ curl -o node_modules/uninett-bootstrap-theme/fonts/colfaxMedium.eot http://mal.u
 curl -o node_modules/uninett-bootstrap-theme/fonts/colfaxRegular.eot http://mal.uninett.no/uninett-theme/fonts/colfaxRegular.eot
 curl -o node_modules/uninett-bootstrap-theme/fonts/colfaxThin.eot http://mal.uninett.no/uninett-theme/fonts/colfaxThin.eot
 curl -o node_modules/uninett-bootstrap-theme/fonts/colfaxRegularItalic.eot http://mal.uninett.no/uninett-theme/fonts/colfaxRegularItalic.eot
-```
-
-I index.js
-
-```
-import css from '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import theme from '../node_modules/bootstrap/dist/css/bootstrap-theme.min.css';
-import uninett from '../node_modules/uninett-bootstrap-theme/css/uninett.css';
-```
-
-I webpack.config.js
-
-```
-module: {
-  rules: [
-    {
-      test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
-      loader: 'url-loader',
-      options: {
-        limit: 10000
-      }
-    },
-    {
-      test: /\.css$/,
-      loader: 'style-loader!css-loader'
-    },
-    {
-      test: /\.jsx$/,
-      exclude: (/node_modules/),
-      loader: 'babel-loader',
-      query: {
-        presets: ['es2015', 'react']
-      }
-    }
-  ]
-},
 ```
