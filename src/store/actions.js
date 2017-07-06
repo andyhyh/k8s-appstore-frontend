@@ -51,7 +51,8 @@ export function closePackage() {
   }
 }
 
-// 
+
+//
 // export function fetchPostsIfNeeded(subreddit) {
 //   // Note that the function also receives getState()
 //   // which lets you choose what to dispatch next.

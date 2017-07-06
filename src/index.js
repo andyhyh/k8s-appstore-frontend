@@ -19,7 +19,6 @@ import '../node_modules/uninett-bootstrap-theme/css/uninett.css'
 
 const history = createHistory()
 
-// THE WORK:
 const routesMap = {
   HOME: '/',      // action <-> url path
   PACKAGE: '/package/:id'  // :id is a dynamic segment
@@ -33,12 +32,6 @@ const logger = store => next => action => {
   console.log('next state', store.getState())
   return result
 }
-
-
-console.log("routerMiddleware", routerSetup.middleware)
-console.log("locationReducer", routerSetup.reducer);
-console.log("enhancer", routerSetup.enhancer);
-
 
 let store = createStore(
   combineReducers({
@@ -54,7 +47,6 @@ let store = createStore(
     )
   )
 )
-
 
 let api = new DataportenAPI(store)
 api.authenticate()
