@@ -27,6 +27,7 @@
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "bootstrap": "*",
+    "extract-text-webpack-plugin": "^3.0.0",
     "history": "^4.6.3",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
