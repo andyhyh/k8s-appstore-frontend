@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "main": "",
   "scripts": {
-    "start": "webpack-dev-server --content-base public ",
+    "start": "webpack-dev-server --content-base public --host 0.0.0.0 ",
     "build": "webpack --display-error-details -d"
   },
   "author": "Andreas Åkre Solberg <andreas.solberg@uninett.no>",
