@@ -1,5 +1,8 @@
 const path = require('path');
 
+const dotenv = require('dotenv').config()
+
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
@@ -67,6 +70,7 @@ module.exports = {
       template: "./src/index.template.html",
       inject: 'body'
     }),
-    new ExtractTextPlugin('style.css')
+    new webpack.EnvironmentPlugin(["API_URL"]),
+    new ExtractTextPlugin('style.css'),
   ]
 };
