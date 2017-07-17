@@ -4,6 +4,7 @@
 ```
 npm install
 npm start # Development
+cp .env.example .env
 ```
 
 

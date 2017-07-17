@@ -7,9 +7,7 @@ class API {
   constructor(store) {
     this.store = store
     this.token = null
-    // this.apiurl = 'https://appstore.appstore-dep.ioudaas.no'
-    // this.apiurl = 'https://appstore.dataporten-api.no'
-    this.apiurl = 'https://auth.dataporten.no/orgs'
+    this.apiurl = process.env.API_URL
     this.jso = new jso({
   		providerID: "dataporten",
   		client_id: "75adc2bb-1800-4f1c-abe4-bb7da7080485",
@@ -35,8 +33,7 @@ class API {
     })
     return this.fetch({
       method: 'GET',
-      // url: this.apiurl + '/packages'
-      url: this.apiurl
+      url: this.apiurl + '/packages'
     })
     .then((response) => {
       console.log("Got response with packages", response)
