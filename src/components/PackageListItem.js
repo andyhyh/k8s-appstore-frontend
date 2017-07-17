@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {ListGroup, ListGroupItem} from 'react-bootstrap'
 
-const Component = ({ onClick, completed, id, title }) => (
+const Component = ({ onClick, completed, id, newest_chart }) => (
   <ListGroupItem
     onClick={onClick}
-    header={title}
+    header={newest_chart.Chart.name}
     style={{
       textDecoration: completed ? 'line-through' : 'none'
     }}
   >
-    {id}
+    {newest_chart.Chart.version}
   </ListGroupItem>
 )
 

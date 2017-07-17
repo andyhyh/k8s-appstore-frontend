@@ -10,9 +10,9 @@ const Component = ({ items, actSelectPackage }) => (
       <ListGroup>
         {items.map(item =>
           <PackageListItem
-            key={item.id}
+            key={item.newest_chart.Name}
             {...item}
-            onClick={() => actSelectPackage(item.id)}
+            onClick={() => actSelectPackage(item.newest_chart.Name)}
           />
         )}
       </ListGroup>

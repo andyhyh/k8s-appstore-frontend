@@ -11,8 +11,8 @@ const getSelectedPackage = (state) => {
   console.log("LOOKING FOR PACKAGE ID ", state.location.payload.id)
   let i;
   for(i = 0; i < state.packages.items.length; i++) {
-    if (state.packages.items[i].id === state.location.payload.id) {
-      console.log("ABout to return package", state.packages.items[i])
+    if (state.packages.items[i].newest_chart.Name === state.location.payload.id) {
+      console.log("About to return package", state.packages.items[i])
       return state.packages.items[i]
     }
   }
