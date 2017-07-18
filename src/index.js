@@ -8,10 +8,10 @@ import thunkMiddleware from 'redux-thunk'
 import { connectRoutes } from 'redux-first-router'
 import createHistory from 'history/createBrowserHistory'
 
-import reducers from './store'
+import reducers from './reducers/'
 import AppController from './containers/AppController'
-import DataportenAPI from './components/API'
-import { selectPackage } from './store/actions'
+import DataportenAPI from './dataporten/'
+import { selectPackage } from './actions/'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/uninett-bootstrap-theme/css/uninett.css'

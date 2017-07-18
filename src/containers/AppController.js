@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import { closePackage } from '../store/actions'
-import App from '../components/App'
+import { closePackage } from '../actions/'
+import App from './App'
 
 
 const mapStateToProps = (state) => ({

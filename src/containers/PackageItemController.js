@@ -1,13 +1,14 @@
 import { connect } from 'react-redux'
-import { closePackage } from '../store/actions'
+import { closePackage } from '../actions/'
 import PackageItem from '../components/PackageItem'
 
 const getSelectedPackage = (state) => {
-  console.log("LOOKING FOR PACKAGE ID ", state.location.payload.id)
   console.log("LOOKING FOR PACKAGE ID ", state.location.type)
   if (state.location.type !== "PACKAGE") {
+    console.log("Looking for: ", state.location.type, "while in getSelectedpackage")
     return {}
   }
+
   console.log("LOOKING FOR PACKAGE ID ", state.location.payload.id)
   let i;
   for(i = 0; i < state.packages.items.length; i++) {

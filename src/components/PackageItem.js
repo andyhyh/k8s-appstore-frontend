@@ -14,7 +14,9 @@ const Component = ({ inprogress, item, actClosePackage }) => (
         <span aria-hidden="true">×</span>
         <span className="sr-only">Close alert</span>
       </button>
-      Package title is {item.title}
+      <h2>{item.newest_chart.Name}</h2>
+      <h4>{item.newest_chart.Version}</h4>
+      <h6>{item.repo}</h6>
     </div>
   </div>
 )

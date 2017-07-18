@@ -1,9 +1,9 @@
 import React from 'react'
-import Footer from './Footer'
-import PackageItemController from '../containers/PackageItemController'
-import PackageListController from '../containers/PackageListController'
-import MainContent from './MainContent'
-import Header from './Header'
+import Footer from '../components/Footer'
+import PackageItemController from './PackageItemController'
+import PackageListController from './PackageListController'
+import MainContent from '../components/MainContent'
+import Header from '../components/Header'
 
 
 const mainContent = {

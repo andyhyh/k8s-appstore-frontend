@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { selectPackage } from '../store/actions'
+import { selectPackage } from '../actions/'
 import PackageList from '../components/PackageList'
 
 const getPackages = (items, filter) => {
