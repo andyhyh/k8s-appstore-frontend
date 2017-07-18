@@ -1,5 +1,5 @@
 import axios from '../../node_modules/axios/lib/axios.js'
-import jso from '../ext/jso';
+import jso from '../../lib/jso';
 
 class DataportenClient {
 
