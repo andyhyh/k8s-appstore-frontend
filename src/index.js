@@ -9,7 +9,7 @@ import { connectRoutes } from 'redux-first-router'
 import createHistory from 'history/createBrowserHistory'
 
 import reducers from './reducers/'
-import AppController from './containers/AppController'
+import App from './containers/App'
 import DataportenAPI from './dataporten/'
 import { selectPackage } from './actions/'
 
@@ -57,7 +57,7 @@ api.authenticate()
 
 ReactDOM.render((
   <Provider store={store}>
-    <AppController />
+    <App />
   </Provider>
   ),
   document.getElementById('app')

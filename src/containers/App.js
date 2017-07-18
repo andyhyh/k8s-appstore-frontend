@@ -5,6 +5,8 @@ import PackageListController from './PackageListController'
 import MainContent from '../components/MainContent'
 import Header from '../components/Header'
 
+import { connect } from 'react-redux'
+import { closePackage } from '../actions/'
 
 const mainContent = {
   HOME: <MainContent />,
@@ -25,4 +27,18 @@ const App = ({locationType, locationPayload}) => (
   </div>
 )
 
-export default App
+
+const mapStateToProps = (state) => ({
+  locationType: state.location.type,
+  locationPayload: state.location.payload
+})
+
+const mapDispatchToProps = {
+}
+
+const Controller = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App)
+
+export default Controller
