@@ -1,8 +1,7 @@
-
 import axios from '../../node_modules/axios/lib/axios.js'
 import jso from '../ext/jso';
 
-class API {
+class DataportenClient {
 
   constructor(store) {
     this.store = store
@@ -16,40 +15,6 @@ class API {
   		// scopes: { request: ["userinfo"]}
   	})
     this.jso.callback()
-  }
-
-  bootstrap() {
-    console.log("Bootstrap")
-    return Promise.all([
-      this.getPackages()
-    ])
-  }
-
-  getPackages() {
-    console.log("Get packages")
-    this.store.dispatch({
-      type: "PACKAGES_FETCHING",
-      payload: null
-    })
-    return this.fetch({
-      method: 'GET',
-      url: this.apiurl + '/packages'
-    })
-    .then((response) => {
-      console.log("Got response with packages", response)
-      this.store.dispatch({
-        type: "PACKAGES_GETALL",
-        payload: response.data
-      })
-    })
-    .catch((error) => {
-      console.error("Error fetching packages", error)
-      this.store.dispatch({
-        type: "PACKAGES_FAILED",
-        payload: {},
-        error: error
-      })
-    })
   }
 
   authenticate() {
@@ -97,4 +62,4 @@ class API {
 
 }
 
-export default API;
+export default DataportenClient;

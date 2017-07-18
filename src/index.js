@@ -10,7 +10,8 @@ import createHistory from 'history/createBrowserHistory'
 
 import reducers from './reducers/'
 import App from './containers/App'
-import DataportenAPI from './dataporten/'
+import DataportenClient from './dataporten/'
+import AppstoreAPI from './appstore/'
 import { selectPackage } from './actions/'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
@@ -49,11 +50,11 @@ let store = createStore(
   )
 )
 
-let api = new DataportenAPI(store)
-api.authenticate()
-  .then(() => {
-    api.bootstrap();
-  })
+let dataportenClient = new DataportenClient(store)
+dataportenClient.authenticate()
+
+let appstoreAPI = new AppstoreAPI(store, dataportenClient.token)
+appstoreAPI.bootstrap()
 
 ReactDOM.render((
   <Provider store={store}>
