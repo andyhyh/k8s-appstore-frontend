@@ -10,7 +10,6 @@ import createHistory from 'history/createBrowserHistory'
 import reducers from './reducers/'
 import App from './containers/App'
 import DataportenClient from './dataporten/'
-import AppstoreAPI from './appstore/'
 import { selectPackage } from './actions/'
 import logger from './middleware/logger'
 
