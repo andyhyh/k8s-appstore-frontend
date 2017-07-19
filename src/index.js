@@ -21,12 +21,12 @@ import '../node_modules/uninett-bootstrap-theme/css/uninett.css'
 const history = createHistory()
 
 const routesMap = {
-  HOME: '/',      // action <-> url path
-  PACKAGES: '/packages',  // :id is a dynamic segment
-  PACKAGE: '/packages/:id'  // :id is a dynamic segment
+  HOME: '/',
+  PACKAGES: '/packages',
+  PACKAGE: '/packages/:id',
 }
 
-const routerSetup = connectRoutes(history, routesMap) // yes, 3 redux aspects
+const routerSetup = connectRoutes(history, routesMap)
 
 let store = createStore(
   combineReducers({
