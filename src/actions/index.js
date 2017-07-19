@@ -19,6 +19,46 @@ export function fetchData() {
   }
 }
 
+export function getAllPackages() {
+  return (dispatch, getState) => {
+    const state = getState()
+
+    if (state.packages.items.length > 0) {
+      dispatch({
+        type: "PACKAGES_GETALL",
+        payload: state.packages.items,
+        isLoading: false
+      })
+      return
+    }
+
+    dispatch({
+      type: "PACKAGES_FETCHING",
+      payload: null,
+      isLoading: true
+    })
+    return fetch(process.env.API_URL + '/packages')
+    .then((response) => response.json())
+      .then((items) => {
+        console.log("Got response with packages", items)
+        dispatch({
+          type: "PACKAGES_GETALL",
+          payload: items,
+          isLoading: false
+        })
+      })
+      .catch((error) => {
+        console.error("Error fetching packages", error)
+        dispatch({
+          type: "PACKAGES_FAILED",
+          payload: {},
+          error: error,
+          isLoading: false
+        })
+    })
+  }
+}
+
 export const PACKAGE_SELECT = 'PACKAGE'
 export function selectPackage(packageId) {
   return {
@@ -55,6 +95,7 @@ export function closePackage() {
 export function listPackages() {
   return {
     type: 'PACKAGES',
-    payload: null
+    payload: null,
+    isLoading: true
   }
 }

@@ -1,4 +1,4 @@
-const packages = (state = {items: []}, action) => {
+const packages = (state = {items: [], isLoading: true}, action) => {
   switch (action.type) {
   case 'PACKAGE_SELECT':
     return Object.assign({}, state, {
@@ -18,15 +18,16 @@ const packages = (state = {items: []}, action) => {
   case 'PACKAGE_FETCHING':
     return Object.assign({}, state, {
       itemIsLoading: action.itemIsLoading,
+      isLoading: action.isLoading,
     });
   case 'PACKAGES_GETALL':
     return Object.assign({}, state, {
-      inprogress: false,
-      items: action.payload
+      items: action.payload,
+      isLoading: action.isLoading
     });
   case 'PACKAGES_FETCHING':
     return Object.assign({}, state, {
-      inprogress: true
+      isLoading: true
     });
   case 'PACKAGE':
     return Object.assign({}, state, {

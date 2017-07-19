@@ -46,9 +46,6 @@ let store = createStore(
 let dataportenClient = new DataportenClient(store)
 dataportenClient.authenticate()
 
-let appstoreAPI = new AppstoreAPI(store, dataportenClient.token)
-appstoreAPI.bootstrap()
-
 ReactDOM.render((
   <Provider store={store}>
     <App />
