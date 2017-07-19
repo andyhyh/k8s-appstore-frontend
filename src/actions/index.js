@@ -48,7 +48,7 @@ export function selectPackage(packageId) {
 }
 export function closePackage() {
   return {
-    type: 'HOME',
+    type: 'PACKAGES',
     payload: null
   }
 }
