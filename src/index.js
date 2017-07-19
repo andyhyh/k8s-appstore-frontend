@@ -7,12 +7,12 @@ import { Provider } from 'react-redux'
 import thunkMiddleware from 'redux-thunk'
 import { connectRoutes } from 'redux-first-router'
 import createHistory from 'history/createBrowserHistory'
-
 import reducers from './reducers/'
 import App from './containers/App'
 import DataportenClient from './dataporten/'
 import AppstoreAPI from './appstore/'
 import { selectPackage } from './actions/'
+import logger from './middleware/logger'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/uninett-bootstrap-theme/css/uninett.css'
@@ -27,13 +27,6 @@ const routesMap = {
 }
 
 const routerSetup = connectRoutes(history, routesMap) // yes, 3 redux aspects
-
-const logger = store => next => action => {
-  console.log('---------> dispatching', action)
-  let result = next(action)
-  console.log('next state', store.getState())
-  return result
-}
 
 let store = createStore(
   combineReducers({
