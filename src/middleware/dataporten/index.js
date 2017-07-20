@@ -25,6 +25,14 @@ export default store => next => action => {
   appJso.getToken((token) => {
     oToken = token
   })
+
+  if (!oToken) {
+    store.dispatch({
+      type: "AUTH_FAILED",
+    })
+    return next(action)
+  }
+
   store.dispatch({
     type: "AUTH_SUCCESS",
     payload: {
