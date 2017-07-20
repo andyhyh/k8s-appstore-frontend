@@ -1,7 +1,10 @@
 const initialAuthState = {
   is: false,
   inprogress: false,
-  user: {}
+  user: {
+    info: undefined,
+    token: undefined
+  }
 };
 
 const auth = (state = initialAuthState, action) => {
@@ -11,15 +14,17 @@ const auth = (state = initialAuthState, action) => {
       is: true,
       inprogress: false,
       user: {
-        "info": action.payload.user.info
+        info: action.payload.user.info,
+        token: state.user.token
       }
     });
   case 'AUTH_SUCCESS':
     return Object.assign({}, state, {
-      is: true,
+      is: false,
       inprogress: false,
       user: {
-        token: action.payload.user.token
+        token: action.payload.user.token,
+        info: state.user.info
       }
     });
   case 'AUTH_FAILED':

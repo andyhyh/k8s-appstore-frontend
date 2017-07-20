@@ -15,7 +15,7 @@ export default store => next => action => {
     return next(action)
   }
 
-  const state = store.getState()
+  let state = store.getState()
   if (state.user) {
     return next(action)
   }
@@ -42,7 +42,8 @@ export default store => next => action => {
     }
   })
 
-  if (!state.auth.user.info) {
+  state = store.getState()
+  if (state.auth.user.info == undefined) {
     fetch({
       method: 'GET',
       url: 'https://auth.dataporten.no/openid/userinfo'
