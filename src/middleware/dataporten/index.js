@@ -33,23 +33,27 @@ export default store => next => action => {
       }
     }
   })
-  fetch({
-    method: 'GET',
-    url: 'https://auth.dataporten.no/openid/userinfo'
-  }, oToken)
-    .then((response) => {
-      console.log("Got the userinfo response", response)
-      store.dispatch({
-        type: "AUTH_FETCH_USER_INFO",
-        payload: {
-          "user" : {
-            "name": response.data.name,
-            "icon": response.data.picture,
-            "token": oToken
+
+  if (!state.auth.user.info) {
+    fetch({
+      method: 'GET',
+      url: 'https://auth.dataporten.no/openid/userinfo'
+    }, oToken)
+      .then((response) => {
+        console.log("Got the userinfo response", response)
+        store.dispatch({
+          type: "AUTH_FETCH_USER_INFO",
+          payload: {
+            "user" : {
+              "info": {
+                "name": response.data.name,
+                "icon": response.data.picture,
+              },
+            }
           }
-        }
+        })
       })
-    })
+  }
 
   return next(action)
 }
