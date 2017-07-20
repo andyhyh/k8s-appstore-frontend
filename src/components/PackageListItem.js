@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {ListGroup, ListGroupItem} from 'react-bootstrap'
+import {ListGroupItem} from 'react-bootstrap'
 
 const Component = ({ onClick, completed, id, newest_chart }) => (
   <ListGroupItem

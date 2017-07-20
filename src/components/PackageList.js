@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {ListGroup, ListGroupItem} from 'react-bootstrap'
+import {ListGroup} from 'react-bootstrap'
 
 var FontAwesome = require('react-fontawesome')
 import PackageListItem from './PackageListItem'
