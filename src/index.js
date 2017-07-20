@@ -15,7 +15,6 @@ import dataporten from './middleware/dataporten/'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/uninett-bootstrap-theme/css/uninett.css'
-// import theme from '../node_modules/bootstrap/dist/css/bootstrap-theme.min.css'
 
 const history = createHistory()
 
