@@ -82,8 +82,7 @@ export function getAllApplications() {
 
     state = getState()
     console.log(state)
-    config.headers.Authorization = 'Basic ' + "dG9wa2VrOmxvbA=="
-    config.headers["X-Dataporten-Token"] = 'Bearer ' + state.auth.user.token.access_token
+    config.headers.Authorization = 'Bearer ' + state.auth.user.token.access_token
     config.method = "GET"
     config.mode = "cors"
     console.log(config)
