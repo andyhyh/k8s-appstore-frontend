@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { selectApplication, getAllApplications } from '../actions/applications'
 import ApplicationList from '../components/ApplicationList'
 
 const mapStateToProps = (state) => ({
@@ -7,14 +6,8 @@ const mapStateToProps = (state) => ({
   isLoading: state.applications.isLoading
 })
 
-const mapDispatchToProps = {
-  actSelectApplication: selectApplication,
-  getAllApplications: getAllApplications
-}
-
 const Controller = connect(
   mapStateToProps,
-  mapDispatchToProps
 )(ApplicationList)
 
 export default Controller

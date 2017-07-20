@@ -4,16 +4,13 @@ import {ListGroup} from 'react-bootstrap'
 
 var FontAwesome = require('react-fontawesome')
 import ApplicationListItem from './ApplicationListItem'
+import Link from 'redux-first-router-link'
 
 const progress = (
   <div><FontAwesome name='circle-o-notch' spin /> Loading data...</div>
 )
 
 class ApplicationList extends Component {
-
-  componentWillMount() {
-    this.props.getAllApplications()
-  }
 
   render() {
     if (this.props.isLoading) {
@@ -26,11 +23,11 @@ class ApplicationList extends Component {
         <div className="uninett-color-white uninett-padded gutter">
           <ListGroup>
             {this.props.applications.map(application =>
+            <Link to={`/applications/${application.name}`}>
               <ApplicationListItem
                 key={application.name}
                 {...application}
-                onClick={() => this.props.actSelectApplication(application.name)}
-              />
+              /></Link>
             )}
           </ListGroup>
         </div>

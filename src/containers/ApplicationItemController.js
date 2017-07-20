@@ -7,14 +7,8 @@ const mapStateToProps = (state) => ({
   application: state.applications.application,
 })
 
-const mapDispatchToProps = {
-  actCloseApplication: closeApplication,
-  getData: fetchApplicationStatus
-}
-
 const Controller = connect(
   mapStateToProps,
-  mapDispatchToProps
 )(ApplicationItem)
 
 export default Controller

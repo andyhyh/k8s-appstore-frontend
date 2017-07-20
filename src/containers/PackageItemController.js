@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { closePackage, fetchData } from '../actions/packages'
 import PackageItem from '../components/PackageItem'
 
 const mapStateToProps = (state) => ({
@@ -7,14 +6,8 @@ const mapStateToProps = (state) => ({
   item: state.packages.item
 })
 
-const mapDispatchToProps = {
-  actClosePackage: closePackage,
-  getData: fetchData
-}
-
 const Controller = connect(
   mapStateToProps,
-  mapDispatchToProps
 )(PackageItem)
 
 export default Controller

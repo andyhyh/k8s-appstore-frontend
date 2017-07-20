@@ -3,10 +3,10 @@ import authenticatedFetch from '../utils/'
 export function fetchData() {
   return (dispatch, getState) => {
     const state = getState()
-    const [repo, packageName] = decodeURIComponent(state.location.payload.id).split("/")
+    const { fullPackageName } = state.location.payload
+    const [repo, packageName] = decodeURIComponent(fullPackageName).split("/")
 
     const packageUrl = `${process.env.API_URL}/packages/${packageName}?repo=${repo}`
-    console.log(packageUrl)
     fetch(packageUrl)
       .then((response) => {
         if (!response.ok) {
@@ -52,17 +52,6 @@ export function getAllPackages() {
           isLoading: false
         })
     })
-  }
-}
-
-export const PACKAGE_SELECT = 'PACKAGE'
-export function selectPackage(packageId) {
-  return {
-    type: PACKAGE_SELECT,
-    payload: {
-      id: packageId,
-      itemIsLoading: true
-    }
   }
 }
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Link from 'redux-first-router-link';
 var FontAwesome = require('react-fontawesome')
 
 const progress = (
@@ -7,9 +8,6 @@ const progress = (
 )
 
 class PackageItem extends Component {
-  componentWillMount() {
-    this.props.getData()
-  }
 
   render() {
     console.log("props", this.props)
@@ -21,10 +19,10 @@ class PackageItem extends Component {
     <div className="container">
       <div className="uninett-color-white uninett-padded gutter">
         {this.props.isLoading ? progress : null }
-        <button onClick={this.props.actClosePackage} type="button" className="close">
+        <Link to="/packages"><button onClick={this.props.actClosePackage} type="button" className="close">
           <span aria-hidden="true">×</span>
           <span className="sr-only">Close alert</span>
-        </button>
+        </button></Link>
         <h2>{this.props.item.metadata.name}</h2>
         <h4>{this.props.item.metadata.version}</h4>
       </div>
@@ -34,8 +32,6 @@ class PackageItem extends Component {
 }
 
 PackageItem.propTypes = {
-  getData: PropTypes.func.isRequired,
-  actClosePackage: PropTypes.func.isRequired,
   item: PropTypes.object.isRequired,
   isLoading: PropTypes.bool.isRequired
   

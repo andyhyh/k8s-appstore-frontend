@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {ListGroup} from 'react-bootstrap'
+import Link from 'redux-first-router-link'
 
 var FontAwesome = require('react-fontawesome')
 import PackageListItem from './PackageListItem'
@@ -10,10 +11,6 @@ const progress = (
 )
 
 class PackageList extends Component {
-
-  componentWillMount() {
-    this.props.getAllPackages()
-  }
 
   render() {
     if (this.props.isLoading) {
@@ -26,11 +23,12 @@ class PackageList extends Component {
         <div className="uninett-color-white uninett-padded gutter">
           <ListGroup>
             {this.props.items.map(item =>
-              <PackageListItem
-                key={item.newest_chart.Name}
-                {...item}
-                onClick={() => this.props.actSelectPackage(item.newest_chart.Name)}
-              />
+              <Link to={`/packages/${encodeURIComponent(item.newest_chart.Name)}`}>
+                <PackageListItem
+                  key={item.newest_chart.Name}
+                  {...item}
+                />
+             </Link>
             )}
           </ListGroup>
         </div>
