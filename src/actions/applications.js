@@ -57,7 +57,8 @@ export function selectApplication(applicationName) {
 export function applicationIsLoading(isLoading) {
   return {
     type: "APPLICATION_FETCHING",
-    applicationIsLoading: isLoading
+    applicationIsLoading: isLoading,
+    requiresAuth: true
   }
 }
 
