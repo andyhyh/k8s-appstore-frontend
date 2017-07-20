@@ -25,10 +25,6 @@ const packages = (state = {items: [], isLoading: true}, action) => {
       items: action.payload,
       isLoading: action.isLoading
     });
-  case 'PACKAGES_FETCHING':
-    return Object.assign({}, state, {
-      isLoading: true
-    });
   case 'PACKAGE':
     return Object.assign({}, state, {
       itemIsLoading: true

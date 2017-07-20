@@ -5,7 +5,6 @@ export function fetchData() {
     const state = getState()
     const [repo, packageName] = decodeURIComponent(state.location.payload.id).split("/")
 
-    dispatch(itemIsLoading(true))
     const packageUrl = `${process.env.API_URL}/packages/${packageName}?repo=${repo}`
     console.log(packageUrl)
     fetch(packageUrl)
@@ -34,11 +33,6 @@ export function getAllPackages() {
       return
     }
 
-    dispatch({
-      type: "PACKAGES_FETCHING",
-      payload: null,
-      isLoading: true
-    })
     return fetch(process.env.API_URL + '/packages')
     .then((response) => response.json())
       .then((items) => {
@@ -69,13 +63,6 @@ export function selectPackage(packageId) {
       id: packageId,
       itemIsLoading: true
     }
-  }
-}
-
-export function itemIsLoading(isLoading) {
-  return {
-    type: "PACKAGE_FETCHING",
-    itemIsLoading: isLoading
   }
 }
 
