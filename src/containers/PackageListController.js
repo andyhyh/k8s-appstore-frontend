@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { selectPackage, getAllPackages } from '../actions/'
+import { selectPackage, getAllPackages } from '../actions/packages'
 import PackageList from '../components/PackageList'
 
 const mapStateToProps = (state) => ({

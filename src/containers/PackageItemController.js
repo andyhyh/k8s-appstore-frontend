@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { closePackage, fetchData } from '../actions/'
+import { closePackage, fetchData } from '../actions/packages'
 import PackageItem from '../components/PackageItem'
 
 const mapStateToProps = (state) => ({

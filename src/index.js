@@ -9,7 +9,6 @@ import { connectRoutes } from 'redux-first-router'
 import createHistory from 'history/createBrowserHistory'
 import reducers from './reducers/'
 import App from './containers/App'
-import { selectPackage } from './actions/'
 import logger from './middleware/logger'
 import dataporten from './middleware/dataporten/'
 

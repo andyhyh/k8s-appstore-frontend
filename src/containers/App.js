@@ -8,7 +8,6 @@ import MainContent from '../components/MainContent'
 import Header from '../components/Header'
 
 import { connect } from 'react-redux'
-import { closePackage } from '../actions/'
 
 const mainContent = {
   HOME: <MainContent />,

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { selectApplication, getAllApplications } from '../actions/'
+import { selectApplication, getAllApplications } from '../actions/applications'
 import ApplicationList from '../components/ApplicationList'
 
 const mapStateToProps = (state) => ({
