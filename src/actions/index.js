@@ -78,25 +78,27 @@ export function getAllApplications() {
       isLoading: true,
       requiresAuth: true
     })
-    let config = {"headers": {}}
-
+    const url = process.env.API_URL + '/releases'
     state = getState()
-    console.log(state)
-    config.headers.Authorization = 'Bearer ' + state.auth.user.token.access_token
-    config.method = "GET"
-    config.mode = "cors"
-    console.log(config)
-    return fetch(process.env.API_URL + '/releases', config)
-    .then((response) => response.json())
-      .then((items) => {
-        console.log("Got response with packages", items)
-        dispatch({
-          type: "APPLICATIONS_GETALL",
-          payload: items,
-          isLoading: false
-        })
+    return authenticatedFetch(url, state).then((items) => {
+      console.log("Got response with packages", items)
+      dispatch({
+        type: "APPLICATIONS_GETALL",
+        payload: items,
+        isLoading: false
       })
+    })
   }
+}
+
+function authenticatedFetch(url, state) {
+  let config = {"headers": {}}
+
+  config.headers.Authorization = 'Bearer ' + state.auth.user.token.access_token
+  config.method = "GET"
+  config.mode = "cors"
+  console.log(config)
+  return fetch(url, config).then((response) => response.json())
 }
 
 export const PACKAGE_SELECT = 'PACKAGE'
