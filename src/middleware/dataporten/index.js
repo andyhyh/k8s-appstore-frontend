@@ -1,4 +1,4 @@
-import axios from '../../../node_modules/axios/lib/axios.js'
+import axios from 'axios';
 import jso from '../../../lib/jso'
 
 let appJso = new jso({
