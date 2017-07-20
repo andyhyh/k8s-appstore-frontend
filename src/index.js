@@ -9,9 +9,9 @@ import { connectRoutes } from 'redux-first-router'
 import createHistory from 'history/createBrowserHistory'
 import reducers from './reducers/'
 import App from './containers/App'
-import DataportenClient from './dataporten/'
 import { selectPackage } from './actions/'
 import logger from './middleware/logger'
+import dataporten from './middleware/dataporten/'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/uninett-bootstrap-theme/css/uninett.css'
@@ -37,13 +37,11 @@ let store = createStore(
     applyMiddleware(
       routerSetup.middleware,
       thunkMiddleware,
+      dataporten,
       logger
     )
   )
 )
-
-let dataportenClient = new DataportenClient(store)
-dataportenClient.authenticate()
 
 ReactDOM.render((
   <Provider store={store}>
