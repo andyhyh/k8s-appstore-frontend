@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../components/Footer'
 import PackageItemController from './PackageItemController'
 import PackageListController from './PackageListController'
+import ApplicationListController from './ApplicationListController'
 import MainContent from '../components/MainContent'
 import Header from '../components/Header'
 
@@ -11,7 +12,8 @@ import { closePackage } from '../actions/'
 const mainContent = {
   HOME: <MainContent />,
   PACKAGE: <PackageItemController />,
-  PACKAGES: <PackageListController />
+  PACKAGES: <PackageListController />,
+  APPLICATIONS: <ApplicationListController />
 }
 
 const c = (x) => {

@@ -59,6 +59,47 @@ export function getAllPackages() {
   }
 }
 
+export function getAllApplications() {
+  return (dispatch, getState) => {
+    let state = getState()
+
+    if (state.applications.applications.length > 0) {
+      dispatch({
+        type: "APPLICATIONS_GETALL",
+        payload: state.applications.applications,
+        isLoading: false
+      })
+      return
+    }
+
+    dispatch({
+      type: "APPLICATIONS_FETCHING",
+      payload: null,
+      isLoading: true,
+      requiresAuth: true
+    })
+    let config = {"headers": {}}
+
+    state = getState()
+    console.log(state)
+    config.headers.Authorization = 'Basic ' + "dG9wa2VrOmxvbA=="
+    config.headers["X-Dataporten-Token"] = 'Bearer ' + state.auth.user.token.access_token
+    config.method = "GET"
+    config.mode = "cors"
+    console.log(config)
+    return fetch(process.env.API_URL + '/releases', config)
+    .then((response) => response.json())
+      .then((items) => {
+        console.log("Got response with packages", items)
+        dispatch({
+          type: "APPLICATIONS_GETALL",
+          payload: items,
+          isLoading: false
+        })
+      })
+  }
+}
+
 export const PACKAGE_SELECT = 'PACKAGE'
 export function selectPackage(packageId) {
   return {
@@ -69,6 +110,18 @@ export function selectPackage(packageId) {
     }
   }
 }
+
+export const APPLICATION_SELECT = 'APPLICATION'
+export function selectApplication(applicationName) {
+  return {
+    type: APPLICATION_SELECT,
+    payload: {
+      id: applicationName,
+      itemIsLoading: true
+    }
+  }
+}
+
 
 export function itemIsLoading(isLoading) {
   return {

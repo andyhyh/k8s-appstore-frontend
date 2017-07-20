@@ -22,7 +22,7 @@ const Header = () => (
       </Nav>
       <Nav>
         <Link to="/packages"><NavItem eventKey={1} href="/packages">Library</NavItem></Link>
-        <NavItem eventKey={2} href="/applications">My applications</NavItem>
+        <Link to="/applications"><NavItem eventKey={2} href="/applications">My applications</NavItem></Link>
         {/*
           <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
             <MenuItem eventKey={3.1}>Action</MenuItem>
