@@ -1,7 +1,7 @@
-export default function authenticatedFetch(url, state) {
+export default function authenticatedFetch(url, token) {
   let config = {"headers": {}}
 
-  config.headers.Authorization = 'Bearer ' + state.auth.user.token.access_token
+  config.headers.Authorization = 'Bearer ' + token.access_token
   config.method = "GET"
   config.mode = "cors"
   console.log(config)

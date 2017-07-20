@@ -6,15 +6,7 @@ export function fetchApplicationStatus() {
 
     dispatch(applicationIsLoading(true))
     const applicationUrl = `${process.env.API_URL}/releases/${applicationName}/status`
-    fetch(applicationUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText)
-        }
-
-        return response
-      })
-      .then((response) => response.json())
+    authenticatedFetch(applicationUrl, state.auth.user.token)
       .then((application) => dispatch(applicationFetchSuccess(application)))
   }
 }
@@ -40,7 +32,7 @@ export function getAllApplications() {
     })
     const url = process.env.API_URL + '/releases'
     state = getState()
-    return authenticatedFetch(url, state).then((items) => {
+    return authenticatedFetch(url, state.auth.user.token).then((items) => {
       console.log("Got response with packages", items)
       dispatch({
         type: "APPLICATIONS_GETALL",
