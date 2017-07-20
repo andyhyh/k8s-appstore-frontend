@@ -22,7 +22,8 @@ const routesMap = {
   HOME: '/',
   PACKAGES: '/packages',
   PACKAGE: '/packages/:id',
-  APPLICATIONS: '/applications'
+  APPLICATIONS: '/applications',
+  APPLICATION: '/applications/:id',
 }
 
 const routerSetup = connectRoutes(history, routesMap)

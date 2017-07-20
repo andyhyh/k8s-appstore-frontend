@@ -2,6 +2,7 @@ import React from 'react'
 import Footer from '../components/Footer'
 import PackageItemController from './PackageItemController'
 import PackageListController from './PackageListController'
+import ApplicationItemController from './ApplicationItemController'
 import ApplicationListController from './ApplicationListController'
 import MainContent from '../components/MainContent'
 import Header from '../components/Header'
@@ -13,7 +14,8 @@ const mainContent = {
   HOME: <MainContent />,
   PACKAGE: <PackageItemController />,
   PACKAGES: <PackageListController />,
-  APPLICATIONS: <ApplicationListController />
+  APPLICATIONS: <ApplicationListController />,
+  APPLICATION: <ApplicationItemController />,
 }
 
 const c = (x) => {

@@ -19,6 +19,27 @@ export function fetchData() {
   }
 }
 
+export function fetchApplicationStatus() {
+  return (dispatch, getState) => {
+    const state = getState()
+    const applicationName = decodeURIComponent(state.location.payload.id)
+
+    dispatch(applicationIsLoading(true))
+    const applicationUrl = `${process.env.API_URL}/releases/${applicationName}/status`
+    fetch(applicationUrl)
+      .then((response) => {
+        if (!response.ok) {
+          throw Error(response.statusText)
+        }
+
+        return response
+      })
+      .then((response) => response.json())
+      .then((application) => dispatch(applicationFetchSuccess(application)))
+  }
+}
+
+
 export function getAllPackages() {
   return (dispatch, getState) => {
     const state = getState()
@@ -123,6 +144,13 @@ export function selectApplication(applicationName) {
   }
 }
 
+export function applicationIsLoading(isLoading) {
+  return {
+    type: "APPLICATION_FETCHING",
+    applicationIsLoading: isLoading
+  }
+}
+
 
 export function itemIsLoading(isLoading) {
   return {
@@ -136,6 +164,21 @@ export function itemFetchSuccess(item) {
     type: "PACKAGE_FETCH_SUCCESS",
     itemIsLoading: false,
     item: item
+  }
+}
+
+export function applicationFetchSuccess(application) {
+  return {
+    type: "APPLICATION_FETCH_SUCCESS",
+    applicationIsLoading: false,
+    application: application
+  }
+}
+
+export function closeApplication() {
+  return {
+    type: 'APPLICATIONS',
+    payload: null
   }
 }
 

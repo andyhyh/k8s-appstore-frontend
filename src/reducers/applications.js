@@ -3,7 +3,7 @@ const applications = (state = {applications: [], isLoading: true}, action) => {
   case 'APPLICATION_SELECT':
     return Object.assign({}, state, {
       selected: action.payload,
-      itemIsLoading: action.itemIsLoading
+      applicationIsLoading: action.applicationIsLoading
     });
   case 'APPLICATION_GET':
     return Object.assign({}, state, {
@@ -12,12 +12,12 @@ const applications = (state = {applications: [], isLoading: true}, action) => {
     });
   case 'APPLICATION_FETCH_SUCCESS':
     return Object.assign({}, state, {
-      item: action.item,
-      itemIsLoading: action.itemIsLoading
+      application: action.application,
+      applicationIsLoading: action.applicationIsLoading
     });
   case 'APPLICATION_FETCHING':
     return Object.assign({}, state, {
-      itemIsLoading: action.itemIsLoading,
+      applicationIsLoading: action.applicationIsLoading,
       isLoading: action.isLoading,
     });
   case 'APPLICATIONS_GETALL':
@@ -31,7 +31,7 @@ const applications = (state = {applications: [], isLoading: true}, action) => {
     });
   case 'APPLICATION':
     return Object.assign({}, state, {
-      itemIsLoading: true
+      applicationIsLoading: true
     });
   default:
     return state
