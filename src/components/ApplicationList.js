@@ -23,9 +23,8 @@ class ApplicationList extends Component {
         <div className="uninett-color-white uninett-padded gutter">
           <ListGroup>
             {this.props.applications.map(application =>
-            <Link to={`/applications/${application.name}`}>
+            <Link key={application.name} to={`/applications/${application.name}`}>
               <ApplicationListItem
-                key={application.name}
                 {...application}
               /></Link>
             )}

@@ -23,9 +23,8 @@ class PackageList extends Component {
         <div className="uninett-color-white uninett-padded gutter">
           <ListGroup>
             {this.props.items.map(item =>
-              <Link to={`/packages/${encodeURIComponent(item.newest_chart.Name)}`}>
+              <Link key={item.newest_chart.Name} to={`/packages/${encodeURIComponent(item.newest_chart.Name)}`}>
                 <PackageListItem
-                  key={item.newest_chart.Name}
                   {...item}
                 />
              </Link>
