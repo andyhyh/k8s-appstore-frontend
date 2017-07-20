@@ -31,7 +31,7 @@ class Component extends React.Component {
 
   getAuthComponent() {
     return (
-      <NavDropdown eventKey={3} title={this.props.auth.name} id="basic-nav-dropdown">
+      <NavDropdown eventKey={3} title={this.props.auth.user.name} id="basic-nav-dropdown">
         <MenuItem eventKey={3.1} href="https://minside.dataporten.no"><Glyphicon glyph="user" /> Min Side</MenuItem>
         <MenuItem eventKey={3.2} href="https://grupper.dataporten.no"><Glyphicon glyph="user" /> Mine grupper</MenuItem>
         <MenuItem eventKey={3.3} href="https://grupper.dataporten.no"><Glyphicon glyph="cog" /> Dataporten Dashboard</MenuItem>

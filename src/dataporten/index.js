@@ -37,8 +37,11 @@ class DataportenClient {
       this.store.dispatch({
         type: "AUTH_SUCCESS",
         payload: {
-          "name": response.data.name,
-          "icon": response.data.picture
+          "user" : {
+            "name": response.data.name,
+            "icon": response.data.picture,
+            "token": this.token
+          }
         }
       })
     })

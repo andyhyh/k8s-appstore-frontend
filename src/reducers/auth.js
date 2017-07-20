@@ -1,6 +1,7 @@
 const initialAuthState = {
   is: false,
-  inprogress: true
+  inprogress: false,
+  user: {}
 };
 
 const auth = (state = initialAuthState, action) => {
@@ -9,8 +10,7 @@ const auth = (state = initialAuthState, action) => {
     return Object.assign({}, state, {
       is: true,
       inprogress: false,
-      name: action.payload.name,
-      icon: action.payload.icon
+      user: action.payload.user
     });
   case 'AUTH_FAILED':
     return Object.assign({}, state, {
