@@ -1,4 +1,5 @@
 import authenticatedFetch from '../utils/'
+
 export function fetchApplicationStatus() {
   return (dispatch, getState) => {
     const state = getState()
@@ -28,7 +29,6 @@ export function getAllApplications() {
       type: "APPLICATIONS_FETCHING",
       payload: null,
       isLoading: true,
-      requiresAuth: true
     })
     const url = process.env.API_URL + '/releases'
     state = getState()

@@ -13,23 +13,14 @@ import App from './containers/App'
 import logger from './middleware/logger'
 import dataporten from './middleware/dataporten/'
 
-import { getAllPackages, fetchData } from './actions/packages'
-import { fetchApplicationStatus, getAllApplications } from './actions/applications'
+import { routesMap, options } from './routesMap'
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/uninett-bootstrap-theme/css/uninett.css'
 
 const history = createHistory()
 
-const routesMap = {
-  HOME: '/',
-  PACKAGES: { path: '/packages', thunk: getAllPackages() },
-  PACKAGE: { path: '/packages/:fullPackageName', thunk: fetchData() },
-  APPLICATIONS: { path: '/applications', thunk: getAllApplications() },
-  APPLICATION: { path: '/applications/:id', thunk: fetchApplicationStatus() },
-}
-
-const routerSetup = connectRoutes(history, routesMap)
+const routerSetup = connectRoutes(history, routesMap, options)
 
 let store = createStore(
   combineReducers({
