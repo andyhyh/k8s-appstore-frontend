@@ -42,7 +42,7 @@ class Component extends React.Component {
 
   }
   render() {
-    if (this.props.auth.is === true) {
+    if (this.props.auth.user.info) {
       return this.getAuthComponent()
     } else if (this.props.auth.inprogress) {
       return this.getLoginInProgress()
